@@ -1,40 +1,48 @@
 import './App.css'
-import {createContext} from 'react'
+import {createContext, useState} from 'react'
 import Chat from './components/Chat'
+import { Route, Routes } from 'react-router-dom'
 
-export const AppContext = createContext()
 
 const userContextValue = {
-  isLoggedIn: false,
-  time: 2020,
-  messages: [
-    {
-      id: 2345331212,
-      msg: 'Hello there my boss',
-    },
-    {
-      id: 2345331212,
-      msg: 'Hello there my boss',
-    },
-    {
-      id: 2345331212,
-      msg: 'Hello there my boss',
-    },
-    {
-      id: 2345331212,
-      msg: 'Hello there my boss',
-    },
-  ],
-  name: 'Ogunmekpon'
-}
+    isLoggedIn: true,
+    time: 2020,
+    messages: [
+      {
+        id: 2345331212,
+        msg: 'Hello there my boss',
+      },
+      {
+        id: 2345331212,
+        msg: 'Hello there my boss',
+      },
+      {
+        id: 2345331212,
+        msg: 'Hello there my boss',
+      },
+      {
+        id: 2345331212,
+        msg: 'Hello there my boss',
+      },
+    ],
+    name: 'Ogunmekpon'
+  }
+
+  export const userContext = createContext(userContextValue)
+
+
 
 function App() {
+
   return (
-    <AppContext.Provider value={userContextValue}>
+    <userContext.Provider value={userContextValue}>
       <div className="App">
-        <Chat />
+        <Routes>
+          <Route index element= {<Chat /> } />
+        </Routes>
+        
       </div>
-    </AppContext.Provider>
+    </userContext.Provider>
   )
 }
 
