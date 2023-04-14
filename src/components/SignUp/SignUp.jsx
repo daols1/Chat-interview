@@ -1,4 +1,5 @@
 import React, { useState  } from 'react'
+import { redirect, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -43,7 +44,7 @@ function SignUp() {
             setName('')
             setEmail('')
             setPassword('')
-            toast('Sign up Succesfull', {
+            toast.success('Sign up Succesfull', {
               position: "top-center",
               autoClose: 3000,
               hideProgressBar: false,
@@ -56,6 +57,15 @@ function SignUp() {
             console.log('form has been submitted')
         }
         // !validateEmail(email) && setEmailErr('Your email is invalid!')
+    }
+
+    // Navigator
+    const navigate = useNavigate()
+
+
+    const buttonHandler = () => {
+      navigate('/chats')
+      console.log("Clicked the submit button")
     }
 
     // console.log(userContext.isLoggedIn)
@@ -100,6 +110,7 @@ function SignUp() {
         {/* <p>{JSON.stringify(userContext.isLoggedIn)}</p> */}
         <button 
         className='text-white p-2 bg-blue-800 rounded-md hover:bg-blue-900 transition-all'
+        onClick={buttonHandler}
         >Submit</button>
       </form>
       {/* {userContextValue} */}

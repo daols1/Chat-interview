@@ -2,6 +2,7 @@ import './App.css'
 import {createContext, useState} from 'react'
 import Chat from './components/Chat'
 import { Route, Routes } from 'react-router-dom'
+import ChatBox from './components/ChatBox/ChatBox'
 
 
 const userContextValue = {
@@ -39,6 +40,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route index element= {<Chat /> } />
+          <Route path='/chats' element= {<ChatBox /> } />
         </Routes>
         
       </div>

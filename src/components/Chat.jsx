@@ -39,7 +39,7 @@ function Chat() {
 
           <h1 className='text-center text-2xl md:text-4xl font-bold mb-4 '>Chat with bros🔥🔥</h1>
           {
-              !ifUserIsLoggedIn === true ?
+              ifUserIsLoggedIn === true ?
               <SignUp />
               :
             //   <Login />
